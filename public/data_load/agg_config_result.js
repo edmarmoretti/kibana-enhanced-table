@@ -55,7 +55,12 @@ AggConfigResult.prototype.toString = function (contentType) {
     };
     this.aggConfig.formatterOptions = { parsedUrl };
   }
-  return fieldFormatterInstance(this.value, this.aggConfig.formatterOptions);
+  //Edmar Moretti - remove ,00
+  let v = fieldFormatterInstance(this.value, this.aggConfig.formatterOptions);
+  if(v.split(',')[1] && v.split(',')[1]*1 == 0){
+    v = v.split(',')[0];
+  }
+  return v;
 };
 
 AggConfigResult.prototype.valueOf = function () {

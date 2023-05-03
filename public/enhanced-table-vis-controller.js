@@ -382,6 +382,10 @@ function EnhancedTableVisController ($scope, tableConfig) {
   };
 
   const renderCell = function (contentType) {
+    //Edmar Moretti - remove os números com zero após a vírgula
+    if(this.value === 0){
+      return '0';
+    }
     let result = this.column.fieldFormatter.convert(this.value);
     if (this.templateContext !== undefined) {
       this.templateContext.value = result;
@@ -391,8 +395,13 @@ function EnhancedTableVisController ($scope, tableConfig) {
       result = result.replace(/<(?:.|\n)*?>/gm, '');
     }
     else {
+      //Edmar Moretti - remove ,00
+      if(result.split(',')[1] && result.split(',')[1]*1 == 0){
+        result = result.split(',')[0];
+      }
       result = { 'markup': result, 'class': this.column.dataAlignmentClass };
     }
+    
     return result;
   };
 
