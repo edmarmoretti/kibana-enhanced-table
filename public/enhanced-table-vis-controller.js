@@ -399,6 +399,10 @@ function EnhancedTableVisController ($scope, tableConfig) {
       if(result.split(',')[1] && result.split(',')[1]*1 == 0){
         result = result.split(',')[0];
       }
+      //ajusta se for do tipo moeda, colocando ,00
+      if (result.substring(0,2) == "R$" && result.substring(result.length - 3, result.length) !== ",00") {
+        result = result + ',00';
+      }
       result = { 'markup': result, 'class': this.column.dataAlignmentClass };
     }
     

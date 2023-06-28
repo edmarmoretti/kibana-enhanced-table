@@ -60,6 +60,10 @@ AggConfigResult.prototype.toString = function (contentType) {
   if(v.split(',')[1] && v.split(',')[1]*1 == 0){
     v = v.split(',')[0];
   }
+  //ajusta se for do tipo moeda, colocando ,00
+  if (v.substring(0,2) == "R$" && v.substring(v.length - 3, v.length) !== ",00") {
+    v = v + ',00';
+  }
   return v;
 };
 
