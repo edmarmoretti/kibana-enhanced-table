@@ -57,11 +57,11 @@ AggConfigResult.prototype.toString = function (contentType) {
   }
   //Edmar Moretti - remove ,00
   let v = fieldFormatterInstance(this.value, this.aggConfig.formatterOptions);
-  if(v.split(',')[1] && v.split(',')[1]*1 == 0){
+  
+  if(v.split(',')[1] && v.split(',')[1]*1 == 0 && v.substring(0,2) !== "R$"){
     v = v.split(',')[0];
   }
-  //ajusta se for do tipo moeda, colocando ,00
-  if (v.substring(0,2) == "R$" && v.substring(v.length - 3, v.length) !== ",00") {
+  if(v.split(',')[1] == undefined && v.substring(0,2) == "R$"){
     v = v + ',00';
   }
   return v;
