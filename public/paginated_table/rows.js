@@ -51,14 +51,16 @@ export function KbnEnhancedRows($compile) {
           const isCellContentFilterable =
             contents.aggConfig.isFilterable()
             && (!field || field.filterable);
-
+          //Editado por Edmar Moretti para remover a opção de filtro
+          /*
           if (isCellContentFilterable) {
             $cell = createFilterableCell(contents);
             $cellContent = $cell.find('[data-cell-content]');
           } else {
             $cell = $cellContent = createCell();
           }
-
+          */
+          $cell = $cellContent = createCell();
           if (row.cssStyle !== undefined || contents.cssStyle  !== undefined) {
             let cssStyle = (row.cssStyle !== undefined) ? row.cssStyle : '';
             if (contents.cssStyle  !== undefined) {

@@ -8,7 +8,8 @@
   show-total="showTotal"
   filter="filter"
   totalFunc="totalFunc">
-
+  <!-- Editado por Edmar Moretti -->
+  <!--
   <div class="kbnAggTable__controls">
     <small
       i18n-id="visTypeTable.aggTable.exportLabel"
@@ -25,6 +26,17 @@
       <span
         i18n-id="visTypeTable.aggTable.formattedLabel"
         i18n-default-message="Formatted"
+       ></span>
+       <i aria-hidden="true" class="fa fa-download"></i>
+    </a>
+    <paginate-controls></paginate-controls>
+  </div>
+  -->
+  <div class="kbnAggTable__controls">
+    <a class="small" ng-click="aggTable.exportAsCsv(true)">
+      <span
+        i18n-id="visTypeTable.aggTable.exportAsCsv"
+        i18n-default-message="Exportar como CSV"
        ></span>
        <i aria-hidden="true" class="fa fa-download"></i>
     </a>
