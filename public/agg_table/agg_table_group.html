@@ -2,7 +2,7 @@
   <thead>
     <tr>
       <th ng-if="table.tables" scope="col">
-        <span class="kbnAggTable__groupHeader">{{ table.title }}</span>
+        <span class="kbnAggTable__groupHeader">{{ (table.title.split(':')[1] + ': ' + table.title.split(':')[0]).replace(' :','')  }}</span>
       </th>
     </tr>
   </thead>
